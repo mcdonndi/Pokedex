@@ -19,10 +19,17 @@ export default StyleSheet.create({
         width: '60%',
         padding: 10,
         margin: 5,
-        alignItems: 'center'
+        alignItems: 'center',
+        borderRadius: 10
     },
     buttonText: {
         fontSize: 20,
         color: colours.whiteBlue
+    },
+    pokedex: {
+        backgroundColor: colours.whiteRed,
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });

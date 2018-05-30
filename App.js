@@ -6,11 +6,17 @@ import {
   View,
   Image
 } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+import PokedexScreen from './components/Pokedex'
 import styles from './styles/Styles'
 import colours from './styles/Colours'
 
-export default class App extends Component<{}> {
-  render() {
+class HomeScreen extends Component<{}> {
+    static navigationOptions = {
+        header: null
+    };
+
+    render() {
     return (
       <View style={styles.container}>
         <StatusBar
@@ -21,7 +27,8 @@ export default class App extends Component<{}> {
         <Text style={styles.appTitleText}>
           Pokédex
         </Text>
-        <TouchableHighlight style={styles.button}>
+        <TouchableHighlight style={styles.button}
+          onPress={() => this.props.navigation.navigate('Pokedex')}>
           <Text style={styles.buttonText}>
             OPEN
           </Text>
@@ -39,4 +46,29 @@ export default class App extends Component<{}> {
       </View>
     );
   }
+}
+
+const RootStack = createStackNavigator(
+    {
+        Home: HomeScreen,
+        Pokedex: PokedexScreen,
+    },
+    {
+        initialRouteName: 'Home',
+        navigationOptions: {
+        headerStyle: {
+            backgroundColor: colours.mainRed,
+        },
+        headerTintColor: colours.whiteRed,
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    },
+    }
+);
+
+export default class App extends React.Component {
+    render() {
+        return <RootStack />;
+    }
 }
