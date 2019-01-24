@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import {
     Text,
+    ScrollView,
     View,
 } from 'react-native';
-import styles from '../styles/Styles'
+import PokedexEntry from './PokedexEntry'
+import { styles } from '../styles/Styles'
 
 class PokedexScreen extends React.Component {
     static navigationOptions = {
@@ -12,9 +14,28 @@ class PokedexScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.pokedex}>
-                <Text>Pokédex Screen</Text>
-            </View>
+            <ScrollView>
+                <View style={styles.pokedex}>
+                    <View style={styles.pokedexRow}>
+                        <View style={styles.pokedexColumn}>
+                            <PokedexEntry id={1}/>
+                            <PokedexEntry id={2}/>
+                        </View>
+                    </View>
+                    <View style={styles.pokedexRow}>
+                        <View style={styles.pokedexColumn}>
+                            <PokedexEntry id={3}/>
+                            <PokedexEntry id={4}/>
+                        </View>
+                    </View>
+                    <View style={styles.pokedexRow}>
+                        <View style={styles.pokedexColumn}>
+                            <PokedexEntry id={5}/>
+                            <PokedexEntry id={6}/>
+                        </View>
+                    </View>
+                </View>
+            </ScrollView>
         );
     }
 }

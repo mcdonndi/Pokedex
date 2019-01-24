@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import PokedexScreen from './components/Pokedex'
-import styles from './styles/Styles'
+import { styles } from './styles/Styles'
 import colours from './styles/Colours'
 
 class HomeScreen extends Component<{}> {
@@ -33,7 +33,8 @@ class HomeScreen extends Component<{}> {
             OPEN
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button}>
+        <TouchableHighlight style={styles.button}
+           onPress={() => console.log("Hello")}>
           <Text style={styles.buttonText}>
             SEARCH
           </Text>

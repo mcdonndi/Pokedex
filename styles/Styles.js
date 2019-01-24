@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
 import colours from './Colours'
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: colours.mainRed,
+        paddingBottom: 10
     },
     appTitleText: {
         fontFamily: 'Courier New',
@@ -28,8 +29,40 @@ export default StyleSheet.create({
     },
     pokedex: {
         backgroundColor: colours.whiteRed,
-        flex: 1,
+        flex: 1
+    },
+    pokedexRow: {
+        flexDirection: 'column',
+        paddingTop: 10
+    },
+    pokedexColumn: {
+        flexDirection: 'row',
+        paddingHorizontal: 5,
+        flex: 1
+    },
+    pokedexEntryContainer: {
+        width: '50%',
+    },
+    pokedexEntry: {
+        backgroundColor: colours.white,
+        marginHorizontal: 5,
+        padding: 10,
+        borderWidth: 2,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    pokemonName: {
+        fontSize: 16,
+        color: colours.black
     }
 });
+
+const types = (type) => StyleSheet.create({
+    typeContainer: {
+        backgroundColor: colours[type],
+        paddingHorizontal: 5,
+        borderRadius: 5
+    }
+});
+
+export { styles, types }
