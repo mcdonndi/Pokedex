@@ -34,6 +34,24 @@ class PokedexScreen extends React.Component {
                             <PokedexEntry id={6}/>
                         </View>
                     </View>
+                    <View style={styles.pokedexRow}>
+                        <View style={styles.pokedexColumn}>
+                            <PokedexEntry id={7}/>
+                            <PokedexEntry id={8}/>
+                        </View>
+                    </View>
+                    <View style={styles.pokedexRow}>
+                        <View style={styles.pokedexColumn}>
+                            <PokedexEntry id={9}/>
+                            <PokedexEntry id={10}/>
+                        </View>
+                    </View>
+                    <View style={styles.pokedexRow}>
+                        <View style={styles.pokedexColumn}>
+                            <PokedexEntry id={11}/>
+                            <PokedexEntry id={12}/>
+                        </View>
+                    </View>
                 </View>
             </ScrollView>
         );

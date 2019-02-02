@@ -26,6 +26,7 @@ class PokedexEntry extends React.Component {
             console.log("Debug message");
             console.log(pokemon);
             this.setState ({
+                id: this.formatId(this.props.id),
                 name: this.Capitalise(pokemon.name),
                 sprite: pokemon.frontSprite,
                 types: pokemon.types,
@@ -39,11 +40,17 @@ class PokedexEntry extends React.Component {
         return str.slice(0,1).toUpperCase() + str.slice(1, str.length);
     }
 
+    formatId(id) {
+        idStr = "" + id;
+        pad = "#000";
+        return pad.substring(0, pad.length - idStr.length) + idStr
+    }
+
     render() {
         return (
             <View style={styles.pokedexEntryContainer}>
                 <View style={styles.pokedexEntry}>
-                    <Text style={styles.pokemonName}># {this.props.id} {this.state.name}</Text>
+                    <Text style={styles.pokemonName}>{this.state.id} {this.state.name}</Text>
                     <Image
                         source={{
                             uri: this.state.sprite,

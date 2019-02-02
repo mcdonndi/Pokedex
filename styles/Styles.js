@@ -6,8 +6,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colours.mainRed,
-        paddingBottom: 10
+        backgroundColor: colours.mainRed
     },
     appTitleText: {
         fontFamily: 'Courier New',
@@ -29,7 +28,8 @@ const styles = StyleSheet.create({
     },
     pokedex: {
         backgroundColor: colours.whiteRed,
-        flex: 1
+        flex: 1,
+        paddingBottom: 10
     },
     pokedexRow: {
         flexDirection: 'column',
@@ -61,7 +61,9 @@ const types = (type) => StyleSheet.create({
     typeContainer: {
         backgroundColor: colours[type],
         paddingHorizontal: 5,
-        borderRadius: 5
+        paddingVertical: 2,
+        borderRadius: 5,
+        overflow: 'hidden'
     }
 });
 
