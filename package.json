@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "^16.6.3",
     "react-native": "^0.58.0",
+    "react-native-navbar-color": "https://github.com/BhavanPatel/react-native-navbar-color.git",
     "react-navigation": "^2.0.4"
   },
   "devDependencies": {

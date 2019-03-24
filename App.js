@@ -7,6 +7,7 @@ import {
   Image
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import NavigationBar from 'react-native-navbar-color'
 import PokedexScreen from './components/Pokedex'
 import { styles } from './styles/Styles'
 import colours from './styles/Colours'
@@ -69,6 +70,9 @@ const RootStack = createStackNavigator(
 );
 
 export default class App extends React.Component {
+    componentDidMount() {
+        NavigationBar.setColor(colours.darkRed)
+    }
     render() {
         return <RootStack />;
     }
