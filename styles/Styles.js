@@ -48,12 +48,16 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         padding: 10,
         borderWidth: 2,
+        borderRadius: 15,
         alignItems: 'center',
         justifyContent: 'center'
     },
     pokemonName: {
         fontSize: 16,
         color: colours.black
+    },
+    typesContainer: {
+        flexDirection: 'row'
     }
 });
 
@@ -62,6 +66,7 @@ const types = (type) => StyleSheet.create({
         backgroundColor: colours[type],
         paddingHorizontal: 5,
         paddingVertical: 2,
+        marginHorizontal: 2,
         borderRadius: 5,
         overflow: 'hidden'
     }

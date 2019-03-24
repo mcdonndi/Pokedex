@@ -14,29 +14,27 @@ class PokedexEntry extends React.Component {
 
     constructor (props) {
         super(props);
-        console.log(this.props.id);
         this.state = {
-            pokemon: null
+            id: null,
+            name: null,
+            sprite: null,
+            types: []
         }
     }
 
     componentWillMount() {
-        console.log("will mount");
         par.getPokemon(this.props.id, (pokemon) => {
-            console.log("Debug message");
-            console.log(pokemon);
             this.setState ({
                 id: this.formatId(this.props.id),
-                name: this.Capitalise(pokemon.name),
+                name: pokemon.name,
                 sprite: pokemon.frontSprite,
-                types: pokemon.types,
-                typesCapitalised: this.Capitalise(pokemon.types)
+                types: pokemon.types.reverse(),
             });
         });
 
     }
 
-    Capitalise(str){
+    _capitalise(str){
         return str.slice(0,1).toUpperCase() + str.slice(1, str.length);
     }
 
@@ -61,8 +59,14 @@ class PokedexEntry extends React.Component {
                         }}
                         style={{width: 150, height: 150}}
                     />
-                    <View style={types(this.state.types).typeContainer}>
-                        <Text style={{color: colours.white}}>{this.state.typesCapitalised}</Text>
+                    <View style={styles.typesContainer}>
+                        {this.state.types.map((type) => {
+                            return (
+                                <View style={types(type).typeContainer}>
+                                    <Text style={{color: colours.white}}>{this._capitalise(type)}</Text>
+                                </View>
+                            )
+                        })}
                     </View>
                 </View>
             </View>
