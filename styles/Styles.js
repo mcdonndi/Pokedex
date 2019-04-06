@@ -29,16 +29,10 @@ const styles = StyleSheet.create({
     pokedex: {
         backgroundColor: colours.whiteRed,
         flex: 1,
-        paddingBottom: 10
+        paddingVertical: 10
     },
-    pokedexRow: {
-        flexDirection: 'column',
-        paddingTop: 10
-    },
-    pokedexColumn: {
-        flexDirection: 'row',
-        paddingHorizontal: 5,
-        flex: 1
+    pokedexSeparator: {
+        height: 10
     },
     pokedexEntryContainer: {
         width: '50%',

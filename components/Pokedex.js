@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
-    Text,
     ScrollView,
     View,
+    FlatList
 } from 'react-native';
 import PokedexEntry from './PokedexEntry'
 import { styles } from '../styles/Styles'
@@ -12,47 +12,39 @@ class PokedexScreen extends React.Component {
         title: 'Pokédex'
     };
 
+    constructor (props) {
+        super(props);
+        this.state = {
+            data: []
+        }
+    }
+
+    componentDidMount() {
+        let data = [];
+        for (let i = 1; i <= 807; i++){
+            data.push({key: i})
+        }
+        this.setState({
+            data: data
+        });
+    }
+
+    renderSeparator = () => {
+        return <View style={styles.pokedexSeparator}/>
+    };
+
     render() {
         return (
             <ScrollView>
-                <View style={styles.pokedex}>
-                    <View style={styles.pokedexRow}>
-                        <View style={styles.pokedexColumn}>
-                            <PokedexEntry id={1}/>
-                            <PokedexEntry id={2}/>
-                        </View>
-                    </View>
-                    <View style={styles.pokedexRow}>
-                        <View style={styles.pokedexColumn}>
-                            <PokedexEntry id={3}/>
-                            <PokedexEntry id={4}/>
-                        </View>
-                    </View>
-                    <View style={styles.pokedexRow}>
-                        <View style={styles.pokedexColumn}>
-                            <PokedexEntry id={5}/>
-                            <PokedexEntry id={6}/>
-                        </View>
-                    </View>
-                    <View style={styles.pokedexRow}>
-                        <View style={styles.pokedexColumn}>
-                            <PokedexEntry id={7}/>
-                            <PokedexEntry id={8}/>
-                        </View>
-                    </View>
-                    <View style={styles.pokedexRow}>
-                        <View style={styles.pokedexColumn}>
-                            <PokedexEntry id={9}/>
-                            <PokedexEntry id={10}/>
-                        </View>
-                    </View>
-                    <View style={styles.pokedexRow}>
-                        <View style={styles.pokedexColumn}>
-                            <PokedexEntry id={11}/>
-                            <PokedexEntry id={12}/>
-                        </View>
-                    </View>
-                </View>
+                <FlatList style={styles.pokedex}
+                    initialNumToRender={6}
+                    numColumns={2}
+                    maxToRenderPerBatch={2}
+                    onEndReachedThreshold={0.1}
+                    data={this.state.data}
+                    ItemSeparatorComponent={this.renderSeparator}
+                    renderItem={({item}) => <PokedexEntry id={item.key}/>}
+                />
             </ScrollView>
         );
     }
