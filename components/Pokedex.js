@@ -7,6 +7,8 @@ import {
 import PokedexEntry from './PokedexEntry'
 import { styles } from '../styles/Styles'
 
+const ITEM_LAYOUT_HEIGHT = styles.pokedexEntry.height + styles.pokedexSeparator.height;
+
 class PokedexScreen extends React.Component {
     static navigationOptions = {
         title: 'Pokédex'
@@ -35,17 +37,19 @@ class PokedexScreen extends React.Component {
 
     render() {
         return (
-            <ScrollView>
-                <FlatList style={styles.pokedex}
-                    initialNumToRender={6}
-                    numColumns={2}
-                    maxToRenderPerBatch={2}
-                    onEndReachedThreshold={0.1}
-                    data={this.state.data}
-                    ItemSeparatorComponent={this.renderSeparator}
-                    renderItem={({item}) => <PokedexEntry id={item.key}/>}
-                />
-            </ScrollView>
+            <FlatList
+                style={styles.pokedex}
+                initialNumToRender={8}
+                numColumns={2}
+                maxRenderPerBatch={2}
+                windowSize={5}
+                data={this.state.data}
+                getItemLayout={(data, index) => (
+                    {length: ITEM_LAYOUT_HEIGHT, offset: ITEM_LAYOUT_HEIGHT * index, index}
+                )}
+                ItemSeparatorComponent={this.renderSeparator}
+                renderItem={({item}) => <PokedexEntry id={item.key}/>}
+            />
         );
     }
 }

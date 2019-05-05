@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 15,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        height: 220
     },
     pokemonName: {
         fontSize: 16,
