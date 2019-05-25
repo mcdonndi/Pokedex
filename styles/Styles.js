@@ -64,6 +64,9 @@ const types = (type) => StyleSheet.create({
         marginHorizontal: 2,
         borderRadius: 5,
         overflow: 'hidden'
+    },
+    typeBorder: {
+        borderColor: colours[type],
     }
 });
 
