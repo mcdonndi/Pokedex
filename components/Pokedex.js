@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    ScrollView,
+    TouchableHighlight,
     View,
     FlatList
 } from 'react-native';
@@ -48,7 +48,11 @@ class PokedexScreen extends React.Component {
                     {length: ITEM_LAYOUT_HEIGHT, offset: ITEM_LAYOUT_HEIGHT * index, index}
                 )}
                 ItemSeparatorComponent={this.renderSeparator}
-                renderItem={({item}) => <PokedexEntry id={item.key}/>}
+                renderItem={({item}) =>
+                    <TouchableHighlight style={styles.pokedexEntryContainer}
+                        onPress={() => this.props.navigation.navigate('Pokemon')}>
+                        <PokedexEntry id={item.key}/>
+                    </TouchableHighlight>}
             />
         );
     }

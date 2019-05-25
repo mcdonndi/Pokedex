@@ -46,28 +46,26 @@ class PokedexEntry extends React.Component {
 
     render() {
         return (
-            <View style={styles.pokedexEntryContainer}>
-                <View style={[styles.pokedexEntry, types(this.state.types[0]).typeBorder]}>
-                    <Text style={styles.pokemonName}>{this.state.id} {this.state.name}</Text>
-                    <Image
-                        source={{
-                            uri: this.state.sprite,
-                            method: 'POST',
-                            headers: {
-                                Pragma: 'no-cache',
-                            }
-                        }}
-                        style={{width: 150, height: 150}}
-                    />
-                    <View style={styles.typesContainer}>
-                        {this.state.types.map((type, i) => {
-                            return (
-                                <View key={i} style={types(type).typeContainer}>
-                                    <Text style={{color: colours.white}}>{this._capitalise(type)}</Text>
-                                </View>
-                            )
-                        })}
-                    </View>
+            <View style={[styles.pokedexEntry, types(this.state.types[0]).typeBorder]}>
+                <Text style={styles.pokemonName}>{this.state.id} {this.state.name}</Text>
+                <Image
+                    source={{
+                        uri: this.state.sprite,
+                        method: 'POST',
+                        headers: {
+                            Pragma: 'no-cache',
+                        }
+                    }}
+                    style={{width: 150, height: 150}}
+                />
+                <View style={styles.typesContainer}>
+                    {this.state.types.map((type, i) => {
+                        return (
+                            <View key={i} style={types(type).typeContainer}>
+                                <Text style={{color: colours.white}}>{this._capitalise(type)}</Text>
+                            </View>
+                        )
+                    })}
                 </View>
             </View>
         );

@@ -9,6 +9,7 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import NavigationBar from 'react-native-navbar-color'
 import PokedexScreen from './components/Pokedex'
+import PokemonScreen from './components/Pokemon'
 import { styles } from './styles/Styles'
 import colours from './styles/Colours'
 
@@ -54,18 +55,19 @@ const RootStack = createStackNavigator(
     {
         Home: HomeScreen,
         Pokedex: PokedexScreen,
+        Pokemon: PokemonScreen,
     },
     {
         initialRouteName: 'Home',
         navigationOptions: {
-        headerStyle: {
-            backgroundColor: colours.mainRed,
+            headerStyle: {
+                backgroundColor: colours.mainRed,
+            },
+            headerTintColor: colours.whiteRed,
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
         },
-        headerTintColor: colours.whiteRed,
-        headerTitleStyle: {
-            fontWeight: 'bold',
-        },
-    },
     }
 );
 
