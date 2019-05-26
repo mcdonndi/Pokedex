@@ -38,7 +38,7 @@ class PokedexScreen extends React.Component {
     render() {
         return (
             <FlatList
-                style={styles.pokedex}
+                style={styles.defaultScreens}
                 initialNumToRender={8}
                 numColumns={2}
                 maxRenderPerBatch={2}
@@ -49,10 +49,8 @@ class PokedexScreen extends React.Component {
                 )}
                 ItemSeparatorComponent={this.renderSeparator}
                 renderItem={({item}) =>
-                    <TouchableHighlight style={styles.pokedexEntryContainer}
-                        onPress={() => this.props.navigation.navigate('Pokemon')}>
-                        <PokedexEntry id={item.key}/>
-                    </TouchableHighlight>}
+                    <PokedexEntry id={item.key} navigation={this.props.navigation}/>
+                }
             />
         );
     }

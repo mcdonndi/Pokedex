@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: colours.whiteBlue
     },
-    pokedex: {
+    defaultScreens: {
         backgroundColor: colours.whiteRed,
         flex: 1,
         paddingVertical: 10
@@ -53,6 +53,15 @@ const styles = StyleSheet.create({
     },
     typesContainer: {
         flexDirection: 'row'
+    },
+    pokemonHeader: {
+        textAlign: 'center',
+        flex: 1,
+        fontSize: 28
+    },
+    pokemonImageContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 });
 
