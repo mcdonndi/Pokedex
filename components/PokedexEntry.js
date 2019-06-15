@@ -26,7 +26,8 @@ class PokedexEntry extends React.Component {
     componentWillMount() {
         par.getPokemon(this.props.id, (pokemon) => {
             this.setState ({
-                id: this._formatId(this.props.id),
+                id: this.props.id,
+                formattedId: this._formatId(this.props.id),
                 name: pokemon.name,
                 sprite: pokemon.frontSprite,
                 types: pokemon.types.reverse(),
@@ -57,7 +58,7 @@ class PokedexEntry extends React.Component {
             <TouchableHighlight style={styles.pokedexEntryContainer}
                 onPress={() => this._onPress()}>
                 <View style={[styles.pokedexEntry, types(this.state.types[0]).typeBorder]}>
-                    <Text style={styles.pokemonName}>{this.state.id} {this.state.name}</Text>
+                    <Text style={styles.pokemonName}>{this.state.formattedId} {this.state.name}</Text>
                     <Image
                         source={{
                             uri: this.state.sprite,

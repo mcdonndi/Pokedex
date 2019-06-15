@@ -62,6 +62,17 @@ const styles = StyleSheet.create({
     pokemonImageContainer: {
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    textEntryContainer: {
+        borderColor: colours.grey,
+        borderWidth: 2,
+        borderRadius: 10,
+        backgroundColor: colours.white,
+        padding: 10,
+        margin: 10
+    },
+    textEntry: {
+        fontSize: 20
     }
 });
 

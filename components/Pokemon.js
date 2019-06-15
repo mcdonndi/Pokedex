@@ -5,11 +5,14 @@ import {
     Image
 } from 'react-native';
 import {styles} from "../styles/Styles";
+import PokeAPIRequest from "../modules/PokeAPIRequest";
+
+let par = new PokeAPIRequest();
 
 class PokemonScreen extends React.Component {
     static navigationOptions = ({navigation}) => {
         return {
-            title: navigation.state.params.pokemon.id + ' ' + navigation.state.params.pokemon.name,
+            title: navigation.state.params.pokemon.formattedId + ' ' + navigation.state.params.pokemon.name,
             headerTitleStyle: styles.pokemonHeader,
             headerRight: <View/>
         };
@@ -22,6 +25,17 @@ class PokemonScreen extends React.Component {
             name: this.props.navigation.state.params.pokemon.name,
             sprite: this.props.navigation.state.params.pokemon.sprite
         }
+    }
+
+    componentWillMount() {
+        par.getPokemonEntryDetails(this.state.id, (pokemonEntryDetails) => {
+            this.setState ({
+                generation: pokemonEntryDetails.generation,
+                textEntry: pokemonEntryDetails.textEntry,
+            });
+            console.log(pokemonEntryDetails.textEntry)
+        });
+
     }
 
     render() {
@@ -38,6 +52,9 @@ class PokemonScreen extends React.Component {
                         }}
                         style={{width: 300, height: 300}}
                     />
+                </View>
+                <View style={styles.textEntryContainer}>
+                    <Text style={styles.textEntry}>{this.state.textEntry}</Text>
                 </View>
             </View>
         );

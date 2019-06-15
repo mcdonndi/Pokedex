@@ -1,0 +1,30 @@
+[
+  {
+    "generation": 1,
+    "version": "blue"
+  },
+  {
+    "generation": 2,
+    "version": "silver"
+  },
+  {
+    "generation": 3,
+    "version": "sapphire"
+  },
+  {
+    "generation": 4,
+    "version": "diamond"
+  },
+  {
+    "generation": 5,
+    "version": "white"
+  },
+  {
+    "generation": 6,
+    "version": "x"
+  },
+  {
+    "generation": 7,
+    "version": "sun"
+  }
+]

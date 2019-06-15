@@ -6,6 +6,7 @@ export default {
     whiteBlue: '#E3F2FD',
     white: '#FFF',
     black: '#000',
+    grey: '#B3B3B3',
     normal: '#A8A878',
     fire: '#F08030',
     fighting: '#C03028',
