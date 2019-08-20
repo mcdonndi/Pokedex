@@ -73,6 +73,29 @@ const styles = StyleSheet.create({
     },
     textEntry: {
         fontSize: 20
+    },
+    pokemonCardsContainer: {
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: colours.grey,
+        margin: 10,
+        elevation: 0
+    },
+    pokemonCardsTitle: {
+        fontSize: 30,
+    },
+    evolutionImagesContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row'
+    },
+    evolutionImageAndArrowContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row'
+    },
+    arrowText: {
+        fontSize:20
     }
 });
 

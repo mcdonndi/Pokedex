@@ -5,6 +5,7 @@ import {
     Image
 } from 'react-native';
 import {styles} from "../styles/Styles";
+import EvolutionLine from "./EvolutionLine";
 import PokeAPIRequest from "../modules/PokeAPIRequest";
 
 let par = new PokeAPIRequest();
@@ -23,17 +24,18 @@ class PokemonScreen extends React.Component {
         this.state = {
             id: this.props.navigation.state.params.pokemon.id,
             name: this.props.navigation.state.params.pokemon.name,
-            sprite: this.props.navigation.state.params.pokemon.sprite
+            sprite: this.props.navigation.state.params.pokemon.sprite,
+            evolutionImages: []
         }
     }
 
     componentWillMount() {
-        par.getPokemonEntryDetails(this.state.id, (pokemonEntryDetails) => {
+        par.getPokemonSpeciesDetails(this.state.id, (pokemonEntryDetails) => {
             this.setState ({
                 generation: pokemonEntryDetails.generation,
                 textEntry: pokemonEntryDetails.textEntry,
+                evolutionImages: pokemonEntryDetails.evolutionImages//["https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"]
             });
-            console.log(pokemonEntryDetails.textEntry)
         });
 
     }
@@ -56,6 +58,7 @@ class PokemonScreen extends React.Component {
                 <View style={styles.textEntryContainer}>
                     <Text style={styles.textEntry}>{this.state.textEntry}</Text>
                 </View>
+                <EvolutionLine images={this.state.evolutionImages} />
             </View>
         );
     }
