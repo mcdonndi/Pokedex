@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {
     Text,
+    ScrollView,
     View,
     Image
 } from 'react-native';
 import {styles} from "../styles/Styles";
 import EvolutionLine from "./EvolutionLine";
+import Types from "./Types";
 import PokeAPIRequest from "../modules/PokeAPIRequest";
 
 let par = new PokeAPIRequest();
@@ -25,6 +27,7 @@ class PokemonScreen extends React.Component {
             id: this.props.navigation.state.params.pokemon.id,
             name: this.props.navigation.state.params.pokemon.name,
             sprite: this.props.navigation.state.params.pokemon.sprite,
+            types: this.props.navigation.state.params.pokemon.types,
             evolutionImages: []
         }
     }
@@ -42,7 +45,7 @@ class PokemonScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.defaultScreens}>
+            <ScrollView style={styles.defaultScreens}>
                 <View style={styles.pokemonImageContainer}>
                     <Image
                         source={{
@@ -59,7 +62,15 @@ class PokemonScreen extends React.Component {
                     <Text style={styles.textEntry}>{this.state.textEntry}</Text>
                 </View>
                 <EvolutionLine images={this.state.evolutionImages} />
-            </View>
+                <View style={styles.pokemonScreenColContainer}>
+                    <View style={styles.pokemonScreenCol}>
+                        <Types types={this.state.types}/>
+                    </View>
+                    <View style={styles.pokemonScreenCol}>
+
+                    </View>
+                </View>
+            </ScrollView>
         );
     }
 }

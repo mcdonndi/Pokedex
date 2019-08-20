@@ -73,7 +73,7 @@ class PokedexEntry extends React.Component {
                     <View style={styles.typesContainer}>
                         {this.state.types.map((type, i) => {
                             return (
-                                <View key={i} style={types(type).typeContainer}>
+                                <View key={i} style={types(type).pokedexEntryTypeContainer}>
                                     <Text style={{color: colours.white}}>{this._capitalise(type)}</Text>
                                 </View>
                             )

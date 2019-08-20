@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: colours.grey,
         margin: 10,
+        marginBottom: 10,
         elevation: 0
     },
     pokemonCardsTitle: {
@@ -96,17 +97,37 @@ const styles = StyleSheet.create({
     },
     arrowText: {
         fontSize:20
+    },
+    pokemonScreenColContainer: {
+        flexDirection: 'row'
+    },
+    pokemonScreenCol: {
+        flex: 0.5
     }
 });
 
 const types = (type) => StyleSheet.create({
-    typeContainer: {
+    pokedexEntryTypeContainer: {
         backgroundColor: colours[type],
         paddingHorizontal: 5,
         paddingVertical: 2,
         marginHorizontal: 2,
         borderRadius: 5,
         overflow: 'hidden'
+    },
+    pokemonTypeContainer: {
+        backgroundColor: colours[type],
+        paddingHorizontal: 5,
+        paddingVertical: 2,
+        margin: 5,
+        borderRadius: 5,
+        alignSelf: 'center',
+        width: "70%",
+    },
+    pokemonTypeText: {
+        color: colours.white,
+        fontSize: 20,
+        textAlign: 'center'
     },
     typeBorder: {
         borderColor: colours[type],
