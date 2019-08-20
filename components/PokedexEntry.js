@@ -56,6 +56,7 @@ class PokedexEntry extends React.Component {
     render() {
         return (
             <TouchableHighlight style={styles.pokedexEntryContainer}
+                disabled={this.state.id === null}
                 onPress={() => this._onPress()}>
                 <View style={[styles.pokedexEntry, types(this.state.types[0]).typeBorder]}>
                     <Text style={styles.pokemonName}>{this.state.formattedId} {this.state.name}</Text>
