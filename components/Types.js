@@ -17,7 +17,7 @@ class Types extends React.Component {
 
     render() {
         return (
-            <Card containerStyle={styles.pokemonCardsContainer} titleStyle={styles.pokemonCardsTitle} title="Types">
+            <Card containerStyle={styles.pokemonCardsContainer} titleStyle={styles.pokemonCardsTitleHalf} title="Types">
                 {this.props.types.map((type, i) => {
                     return (
                         <View key={i} style={types(type).pokemonTypeContainer}>

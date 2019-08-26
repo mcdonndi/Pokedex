@@ -9,6 +9,7 @@ import {styles} from "../styles/Styles";
 import EvolutionLine from "./EvolutionLine";
 import Types from "./Types";
 import PokeAPIRequest from "../modules/PokeAPIRequest";
+import Appearance from "./Appearance";
 
 let par = new PokeAPIRequest();
 
@@ -28,19 +29,36 @@ class PokemonScreen extends React.Component {
             name: this.props.navigation.state.params.pokemon.name,
             sprite: this.props.navigation.state.params.pokemon.sprite,
             types: this.props.navigation.state.params.pokemon.types,
-            evolutionImages: []
+            evolutionImages: [],
+            height: null,
+            weight: null,
+            shape: null
         }
     }
 
     componentWillMount() {
-        par.getPokemonSpeciesDetails(this.state.id, (pokemonEntryDetails) => {
+        par.getPokemonSpeciesDetails(this.state.id, (pokemonSpeciesDetails) => {
             this.setState ({
-                generation: pokemonEntryDetails.generation,
-                textEntry: pokemonEntryDetails.textEntry,
-                evolutionImages: pokemonEntryDetails.evolutionImages//["https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png","https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"]
+                generation: pokemonSpeciesDetails.generation,
+                textEntry: pokemonSpeciesDetails.textEntry,
+                evolutionImages: pokemonSpeciesDetails.evolutionImages,
+                shape: pokemonSpeciesDetails.shape
             });
         });
+        par.getPokemon(this.state.id, (pokemonDetails) => {
+            this.setState ({
+                height: pokemonDetails.height,
+                weight: pokemonDetails.weight
+            })
+        })
+    }
 
+    _getAppearanceData() {
+        return [
+            {meta: "Height", data: `${this.state.height} m`},
+            {meta: "Weight", data: `${this.state.weight} kg`},
+            {meta: "Shape", data: this.state.shape}
+        ]
     }
 
     render() {
@@ -67,7 +85,7 @@ class PokemonScreen extends React.Component {
                         <Types types={this.state.types}/>
                     </View>
                     <View style={styles.pokemonScreenCol}>
-
+                        <Appearance data={this._getAppearanceData()}/>
                     </View>
                 </View>
             </ScrollView>

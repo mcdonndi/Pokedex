@@ -82,8 +82,11 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         elevation: 0
     },
-    pokemonCardsTitle: {
+    pokemonCardsTitleFull: {
         fontSize: 30,
+    },
+    pokemonCardsTitleHalf: {
+        fontSize: 25,
     },
     evolutionImagesContainer: {
         alignItems: 'center',
@@ -103,6 +106,32 @@ const styles = StyleSheet.create({
     },
     pokemonScreenCol: {
         flex: 0.5
+    },
+    tableRow:{
+        flex: 1,
+        flexDirection: "row",
+        alignSelf: "stretch"
+    },
+    tableLeftCol: {
+        flex: 4,
+        alignSelf: 'stretch',
+        paddingHorizontal: 5,
+        borderRightWidth: 0.5,
+        borderRightColor: colours.grey
+    },
+    tableLeftColText: {
+        fontWeight: 'bold',
+        textAlign: 'right',
+        fontSize: 16
+    },
+    tableRightCol: {
+        flex: 6,
+        alignSelf: 'stretch',
+        paddingHorizontal: 5
+    },
+    tableRightColText: {
+        textAlign: 'left',
+        fontSize: 16
     }
 });
 

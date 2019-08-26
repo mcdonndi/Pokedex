@@ -12,7 +12,10 @@ export default class PokeAPIRequest{
                     id: responseJson.id,
                     name: this._capitalise(responseJson.name),
                     frontSprite: responseJson.sprites.front_default,
-                    types: this._get_types(responseJson.types)};
+                    types: this._get_types(responseJson.types),
+                    height: (responseJson.height * 0.1).toFixed(1),
+                    weight: (responseJson.weight * 0.1).toFixed(1)
+                };
                 cb(pokemon);
             })
             .catch((error) => {
@@ -30,7 +33,8 @@ export default class PokeAPIRequest{
                             let pokemonEntryDetails = {
                                 generation: this._convertGenIntToText(responseJson.generation.name),
                                 textEntry: this._getTextEntry(responseJson.generation.name, responseJson.flavor_text_entries),
-                                evolutionImages: evolutionImages
+                                evolutionImages: evolutionImages,
+                                shape: this._capitalise(responseJson.shape.name)
                             };
                             cb(pokemonEntryDetails);
                         })

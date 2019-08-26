@@ -14,7 +14,7 @@ class EvolutionLine extends React.Component {
 
     render() {
         return (
-            <Card containerStyle={styles.pokemonCardsContainer} titleStyle={styles.pokemonCardsTitle} title="Evolution Line">
+            <Card containerStyle={styles.pokemonCardsContainer} titleStyle={styles.pokemonCardsTitleFull} title="Evolution Line">
                 <View style={styles.evolutionImagesContainer}>
                 {this.props.images.map((image, key) =>
                     <View key={key} style={styles.evolutionImageAndArrowContainer}>
