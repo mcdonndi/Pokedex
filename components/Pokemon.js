@@ -88,6 +88,7 @@ class PokemonScreen extends React.Component {
                         <Appearance data={this._getAppearanceData()}/>
                     </View>
                 </View>
+                <View style={{height: 10}}/>
             </ScrollView>
         );
     }
