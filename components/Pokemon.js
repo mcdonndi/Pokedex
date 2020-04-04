@@ -11,6 +11,7 @@ import Types from "./Types";
 import PokeAPIRequest from "../modules/PokeAPIRequest";
 import Appearance from "./Appearance";
 import MiscPokemonData from "./MiscPokemonData";
+import Abilities from './Abilities';
 
 let par = new PokeAPIRequest();
 
@@ -33,7 +34,8 @@ class PokemonScreen extends React.Component {
             evolutionImages: [],
             height: null,
             weight: null,
-            shape: null
+            shape: null,
+            abilities: []
         }
     }
 
@@ -50,7 +52,8 @@ class PokemonScreen extends React.Component {
         par.getPokemon(this.state.id, (pokemonDetails) => {
             this.setState ({
                 height: pokemonDetails.height,
-                weight: pokemonDetails.weight
+                weight: pokemonDetails.weight,
+                abilities: pokemonDetails.abilities
             })
         })
     }
@@ -89,6 +92,7 @@ class PokemonScreen extends React.Component {
                     <View style={styles.pokemonScreenCol}>
                         <Types types={this.state.types}/>
                         <MiscPokemonData title="Generation" data={this.state.generation}/>
+                        <Abilities abilities={this.state.abilities}/>
                     </View>
                     <View style={styles.pokemonScreenCol}>
                         <Appearance data={this._getAppearanceData()}/>

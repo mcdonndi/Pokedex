@@ -136,6 +136,9 @@ const styles = StyleSheet.create({
     miscPokemonData: {
         textAlign: 'center',
         fontSize: 20
+    },
+    abilitiesData: {
+        fontSize:20
     }
 });
 

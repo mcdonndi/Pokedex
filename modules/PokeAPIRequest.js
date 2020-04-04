@@ -14,7 +14,8 @@ export default class PokeAPIRequest{
                     frontSprite: responseJson.sprites.front_default,
                     types: this._get_types(responseJson.types),
                     height: (responseJson.height * 0.1).toFixed(1),
-                    weight: (responseJson.weight * 0.1).toFixed(1)
+                    weight: (responseJson.weight * 0.1).toFixed(1),
+                    abilities: this._getAbilities(responseJson.abilities)
                 };
                 cb(pokemon);
             })
@@ -69,6 +70,14 @@ export default class PokeAPIRequest{
                 return g.genus
             }
         }
+    }
+
+    _getAbilities(abilities) {
+        ability_names = [];
+        for (a of abilities) {
+            ability_names.push(a.ability.name)
+        }
+        return ability_names
     }
 
     _removeEscapeCharacters(s) {
