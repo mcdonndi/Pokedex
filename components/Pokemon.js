@@ -10,6 +10,7 @@ import EvolutionLine from "./EvolutionLine";
 import Types from "./Types";
 import PokeAPIRequest from "../modules/PokeAPIRequest";
 import Appearance from "./Appearance";
+import MiscPokemonData from "./MiscPokemonData";
 
 let par = new PokeAPIRequest();
 
@@ -42,7 +43,8 @@ class PokemonScreen extends React.Component {
                 generation: pokemonSpeciesDetails.generation,
                 textEntry: pokemonSpeciesDetails.textEntry,
                 evolutionImages: pokemonSpeciesDetails.evolutionImages,
-                shape: pokemonSpeciesDetails.shape
+                shape: pokemonSpeciesDetails.shape,
+                category: pokemonSpeciesDetails.category
             });
         });
         par.getPokemon(this.state.id, (pokemonDetails) => {
@@ -76,18 +78,24 @@ class PokemonScreen extends React.Component {
                         style={{width: 300, height: 300}}
                     />
                 </View>
+
                 <View style={styles.textEntryContainer}>
                     <Text style={styles.textEntry}>{this.state.textEntry}</Text>
                 </View>
+
                 <EvolutionLine images={this.state.evolutionImages} />
+
                 <View style={styles.pokemonScreenColContainer}>
                     <View style={styles.pokemonScreenCol}>
                         <Types types={this.state.types}/>
+                        <MiscPokemonData title="Generation" data={this.state.generation}/>
                     </View>
                     <View style={styles.pokemonScreenCol}>
                         <Appearance data={this._getAppearanceData()}/>
+                        <MiscPokemonData title="Category" data={this.state.category}/>
                     </View>
                 </View>
+
                 <View style={{height: 10}}/>
             </ScrollView>
         );

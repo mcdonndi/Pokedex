@@ -132,6 +132,10 @@ const styles = StyleSheet.create({
     tableRightColText: {
         textAlign: 'left',
         fontSize: 16
+    },
+    miscPokemonData: {
+        textAlign: 'center',
+        fontSize: 20
     }
 });
 

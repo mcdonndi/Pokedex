@@ -34,7 +34,8 @@ export default class PokeAPIRequest{
                                 generation: this._convertGenIntToText(responseJson.generation.name),
                                 textEntry: this._getTextEntry(responseJson.generation.name, responseJson.flavor_text_entries),
                                 evolutionImages: evolutionImages,
-                                shape: this._capitalise(responseJson.shape.name)
+                                shape: this._capitalise(responseJson.shape.name),
+                                category: this._getCategory(responseJson.genera)
                             };
                             cb(pokemonEntryDetails);
                         })
@@ -58,6 +59,14 @@ export default class PokeAPIRequest{
         for (textEntry of textEntries) {
             if (textEntry.language.name === 'en' && textEntry.version.name === version) {
                 return this._removeEscapeCharacters(textEntry.flavor_text);
+            }
+        }
+    }
+
+    _getCategory(genera){
+        for (g of genera) {
+            if (g.language.name === 'en') {
+                return g.genus
             }
         }
     }
