@@ -35,7 +35,8 @@ class PokemonScreen extends React.Component {
             height: null,
             weight: null,
             shape: null,
-            abilities: []
+            abilities: [],
+            category: null
         }
     }
 
@@ -46,7 +47,8 @@ class PokemonScreen extends React.Component {
                 textEntry: pokemonSpeciesDetails.textEntry,
                 evolutionImages: pokemonSpeciesDetails.evolutionImages,
                 shape: pokemonSpeciesDetails.shape,
-                category: pokemonSpeciesDetails.category
+                category: pokemonSpeciesDetails.category,
+                habitat: pokemonSpeciesDetails.habitat
             });
         });
         par.getPokemon(this.state.id, (pokemonDetails) => {
@@ -97,6 +99,7 @@ class PokemonScreen extends React.Component {
                     <View style={styles.pokemonScreenCol}>
                         <Appearance data={this._getAppearanceData()}/>
                         <MiscPokemonData title="Category" data={this.state.category}/>
+                        <MiscPokemonData title="Habitat" data={this.state.habitat}/>
                     </View>
                 </View>
 

@@ -36,7 +36,8 @@ export default class PokeAPIRequest{
                                 textEntry: this._getTextEntry(responseJson.generation.name, responseJson.flavor_text_entries),
                                 evolutionImages: evolutionImages,
                                 shape: this._capitalise(responseJson.shape.name),
-                                category: this._getCategory(responseJson.genera)
+                                category: this._getCategory(responseJson.genera),
+                                habitat: this._capitalise(responseJson.habitat.name)
                             };
                             cb(pokemonEntryDetails);
                         })
@@ -75,7 +76,7 @@ export default class PokeAPIRequest{
     _getAbilities(abilities) {
         ability_names = [];
         for (a of abilities) {
-            ability_names.push(a.ability.name)
+            ability_names.push(this._capitalise(a.ability.name))
         }
         return ability_names
     }
